@@ -37,7 +37,7 @@
 
 **language** : Java , html/css, javascript
 
-**frame work** : srping f/w 
+**frame work** : spring f/w ( MVC 2)
 
 **etc or skill**
 
