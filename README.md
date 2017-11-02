@@ -80,13 +80,13 @@
 *controller , dao , jsp , dto*				
 ​			
 
-![collage2](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/collage2.png)
+![collage2](./img/collage2.png)
 
 *mapper query(거리순대로 출력)*
 
 
 
-![collage3](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/collage3.png)
+![collage3](./img/collage3.png)
 
 *geoLocation Lucy-xss-filter*
 
@@ -96,11 +96,11 @@
 
 
 
-![P20170918_005417000_F25AEE1D-23FF-4D8F-8E52-3BE5101358A4](/Users/kingop/Desktop/workspaceGil/FootFoot/1004.byebye/src/gitimg/P20170918_005417000_F25AEE1D-23FF-4D8F-8E52-3BE5101358A4.PNG)
+![P20170918_005417000_F25AEE1D-23FF-4D8F-8E52-3BE5101358A4](./img/P20170918_005417000_F25AEE1D-23FF-4D8F-8E52-3BE5101358A4.PNG)
 
 *login_view*
 
-![modal](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/modal.PNG)
+![modal](./img/modal.PNG)
 
 *alert*
 
@@ -108,28 +108,28 @@
 
 
 
-![nowwhere](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/nowwhere.JPG)
+![nowwhere](./img/nowwhere.JPG)
 
 
 
 *위치 정보를 받고 근처에 있는 정보 출력*
 
-![detail](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/detail.JPG)
+![detail](./img/detail.JPG)
 
 *게시물 조회*
 
 
 
-![lucy xss](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/lucy xss.PNG)
+![lucy xss](./img/lucy xss.PNG)
 
 
 
 *루시 필터 테스트* 
 
-![content](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/content.PNG)
+![content](./img/content.PNG)
 
 *나의 게시물 출력*
 
-![daumAPi](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/daumAPi.JPG)
+![daumAPi](./img/daumAPi.JPG)
 
 *daum api*
