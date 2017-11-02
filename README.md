@@ -20,7 +20,7 @@
 
 **period** : 2016 10/27 – 2016 12/08
 
-**git** : h8ps://github.com/kid4290/FootFoot/
+**git** : https://github.com/leeking68/SNS-APP-Foot-Foot
 
 **작업인원** : 4명
 
@@ -73,20 +73,20 @@
 
   **CODE 사진**
 
-  ![collage1](/Users/kingop/Desktop/collage1.png)
+  ![collage1](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/collage1.png)
 
 
 
 *controller , dao , jsp , dto*				
 ​			
 
-![collage2](/Users/kingop/Desktop/collage2.png)
+![collage2](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/collage2.png)
 
 *mapper query(거리순대로 출력)*
 
 
 
-![collage3](/Users/kingop/Desktop/collage3.png)
+![collage3](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/collage3.png)
 
 *geoLocation Lucy-xss-filter*
 
@@ -96,11 +96,11 @@
 
 
 
-![P20170918_005417000_F25AEE1D-23FF-4D8F-8E52-3BE5101358A4](/Users/kingop/Desktop/foot,foot사진/P20170918_005417000_F25AEE1D-23FF-4D8F-8E52-3BE5101358A4.PNG)
+![P20170918_005417000_F25AEE1D-23FF-4D8F-8E52-3BE5101358A4](/Users/kingop/Desktop/workspaceGil/FootFoot/1004.byebye/src/gitimg/P20170918_005417000_F25AEE1D-23FF-4D8F-8E52-3BE5101358A4.PNG)
 
 *login_view*
 
-![modal](/Users/kingop/Desktop/foot,foot사진/modal.PNG)
+![modal](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/modal.PNG)
 
 *alert*
 
@@ -108,28 +108,28 @@
 
 
 
-![nowwhere](/Users/kingop/Desktop/foot,foot사진/nowwhere.JPG)
+![nowwhere](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/nowwhere.JPG)
 
 
 
 *위치 정보를 받고 근처에 있는 정보 출력*
 
-![detail](/Users/kingop/Desktop/foot,foot사진/detail.JPG)
+![detail](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/detail.JPG)
 
 *게시물 조회*
 
 
 
-![lucy xss](/Users/kingop/Desktop/foot,foot사진/lucy xss.PNG)
+![lucy xss](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/lucy xss.PNG)
 
 
 
 *루시 필터 테스트* 
 
-![content](/Users/kingop/Desktop/foot,foot사진/content.PNG)
+![content](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/content.PNG)
 
 *나의 게시물 출력*
 
-![daumAPi](/Users/kingop/Desktop/foot,foot사진/daumAPi.JPG)
+![daumAPi](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/daumAPi.JPG)
 
 *daum api*
