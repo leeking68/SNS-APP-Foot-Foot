@@ -73,7 +73,7 @@
 
   **CODE 사진**
 
-  ![collage1](/Users/kingop/Desktop/workspaceGil/footfoot/1004.byebye/src/gitimg/collage1.png)
+  ![collage1](./img/collage1.png)
 
 
 
