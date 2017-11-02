@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="work.com.mapper.BeaconMapper">
+	<resultMap id="beaconResult" type="work.com.byebye.dto.BeaconDto">
+		<result property="idx" column="B_IDX" />
+		<result property="bId" column="B_ID" />
+		<result property="bSpotName" column="B_SPOTNAME" />
+		<result property="bLoaction" column="B_LOCACTION" />
+		<result property="bPage" column="B_PAGE" />
+		<result property="bImg" column="B_IMG" />
+	</resultMap>
+
+	<select id="getBeaconList" resultType="map">
+		select * from beacon
+	</select>
+	
+	<select id="getBeacon" resultMap="beaconResult" parameterType="String">
+		select * from BEACON where b_id=#{BId}
+	</select>
+	
+
+	<select id="getBeaconResult" parameterType="hashmap" resultType="map">
+		select * from beacon where b_id in
+		<foreach collection="macList" item="item" open="(" close=")"
+			separator=",">
+			#{item}
+		</foreach>
+	</select>
+</mapper>
+

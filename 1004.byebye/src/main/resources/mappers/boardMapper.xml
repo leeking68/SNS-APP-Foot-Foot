@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="work.com.mapper.BoardMapper">
+	<resultMap id="boardResult" type="work.com.byebye.dto.BoardDto">
+		<result property="docNum" column="doc_num" />
+		<result property="userid" column="userid" />
+		<result property="lat" column="lat" />
+		<result property="lon" column="lon" />
+		<result property="picFile" column="pic_File" />
+		<result property="movFile" column="mov_File" />
+		<result property="docTle" column="doc_Tle" />
+		<result property="docCon" column="doc_Con" />
+		<result property="docDate" column="doc_Date" />
+		<result property="docHit" column="doc_Hit" />
+		<result property="docTf" column="doc_Tf" />
+		<result property="docTag" column="doc_Tag" />
+		<result property="place" column="place" />
+		<result property="userimg" column="userimg"/>
+		<result property="nickname" column="nickname"/>
+<!-- 		<result property="distance" column="distance" /> -->
+	</resultMap>
+
+	<!-- 사진 게시 insert -->
+	
+   <insert id="insertBoard" parameterType="BoardDto">
+      insert into BOARD (doc_num,userid,lat,lon,pic_file,mov_file,doc_tle,doc_con,doc_date,doc_hit,doc_tf,doc_tag,place) 
+      values
+      (Board_num.nextval,#{userid},#{lat},#{lon},#{picFile},#{movFile},#{docTle},#{docCon},sysdate,#{docHit},#{docTf},#{docTag},#{place})
+   </insert>
+
+
+	<!-- 사진 조회 -->
+	<!-- 
+	<select id="myPlace" resultMap="boardResult" parameterType="String">
+		select * from BOARD where userid= #{userid}
+	</select>
+	 -->
+	 <!-- 아이디로 사진 리스트 조회 -->
+	<select id="myPlace" resultMap="boardResult" parameterType="BoardDto">
+		select doc_num,userid,lat,lon,pic_file,mov_file,doc_tle,doc_con,doc_date,doc_hit,doc_tf,doc_tag,place 
+		from 
+		(select doc_num,userid,lat,lon,pic_file,mov_file,doc_tle,doc_con,doc_date,doc_hit,doc_tf,doc_tag,place,
+		(abs(#{lat}-lat)+abs(#{lon}-lon))/2 
+		from board where (userid=#{userid})  
+		order by (abs(#{lat}-lat)+abs(#{lon}-lon))/2 asc, doc_date desc)
+   </select>
+	
+	<!-- 홈 화면용 남의 사진 조회 --> 
+	<select id="index" resultMap="boardResult" parameterType="BoardDto">
+		select doc_num,userid,lat,lon,pic_file,mov_file,doc_tle,doc_con,doc_date,doc_hit,doc_tf,doc_tag,place 
+		from 
+		(select doc_num,userid,lat,lon,pic_file,mov_file,doc_tle,doc_con,doc_date,doc_hit,doc_tf,doc_tag,place,
+		(abs(#{lat}-lat)+abs(#{lon}-lon))/2 
+		from board where (userid!=#{userid} and doc_tf='on') 
+		order by (abs(#{lat}-lat)+abs(#{lon}-lon))/2 asc, doc_date desc)
+	</select>
+
+	<!-- 비디오 상세 조회 -->
+	<select id="myPlaceMovContent" resultType="BoardDto"
+		parameterType="String">
+		select doc_num,userid,lat,lon,pic_file,mov_file,doc_tle,doc_con,doc_date,doc_hit,doc_tf,doc_tag,place from BOARD where doc_num= #{docNum}
+	</select>
+
+	<!-- 사진 상세 조회 -->
+	<select id="myPlaceContent" resultMap="boardResult"
+		parameterType="String">
+		select doc_num,userid,lat,lon,pic_file,mov_file,doc_tle,doc_con,doc_date,doc_hit,doc_tf,doc_tag,place from BOARD where doc_num= #{docNum}
+	</select>
+	
+	<select id="myPlaceContentTwo" resultMap="boardResult" parameterType="String">
+	select b.doc_num as doc_num,b.userid as userid,b.lat as lat,b.lon as lon,b.PIC_FILE as pic_file,b.MOV_FILE as mov_file,b.DOC_TLE as doc_tle,b.doc_con as doc_con,b.DOC_DATE as doc_date,b.doc_hit as doc_hit,b.doc_tf as doc_tf,b.DOC_TAG as doc_tag,b.PLACE as place,b.ALERT_DATE as alert_date,u.NICKNAME as nickname,u.USERIMG as userimg
+from board b,users u 
+where b.USERID=u.USERID and b.doc_num = #{docNum}
+	</select>
+
+	<!-- 남의 사진 상세 조회 -->
+	<select id="indexContent" resultMap="boardResult"
+		parameterType="String">
+		select doc_num,userid,lat,lon,pic_file,mov_file,doc_tle,doc_con,doc_date,doc_hit,doc_tf,doc_tag,place from BOARD where doc_num= #{docNum}
+	</select>
+
+	<!-- 내용 수정 -->
+	<update id="updateContent" parameterType="BoardDto">
+		update BOARD set doc_con = #{docCon}, doc_Tag = #{docTag} , doc_Tle = #{docTle} , place=#{place} 
+		where doc_num = #{docNum}
+	</update>
+	
+	<!-- 삭제 -->
+	<delete id="deletePlace" parameterType="String"> 
+		delete from BOARD where doc_num = #{docNum}
+	</delete>
+
+</mapper>

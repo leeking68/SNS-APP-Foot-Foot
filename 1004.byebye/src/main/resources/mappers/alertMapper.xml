@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="work.com.mapper.AlertMapper">
+<resultMap id="alertResult" type="work.com.byebye.dto.AlertDTO">
+<result property="userid" column="userid" />
+<result property="picFile" column="pic_file" />
+<result property="alertDate" column="alert_date"/>
+<result property="docDate" column="doc_date"/>
+<result property="distance" column="distance"/>
+<result property="docNum" column="doc_num"/>
+<result property="lately" column="lately"/>
+</resultMap>
+
+   <select id="alertPlace" resultMap="alertResult" parameterType="hashmap">
+<![CDATA[
+select userid,pic_file,alert_date,doc_date,doc_num,TRUNC(sysdate-doc_date) as lately
+,DISTNACE_WGS84(${lon}, ${lat}, lon, lat) as DISTANCE from board 
+where userid=#{userid} and alert_date<=sysdate and ((lon between ${lon}-0.057 and ${lon}+0.057)
+    and (lat between ${lat}-0.066 and ${lat}+0.066)) and rownum=1 order by distance
+]]>
+   </select>
+   <update id="alertOff" parameterType="int">
+   <![CDATA[
+   update board set alert_date=sysdate+90 where doc_num=${value}
+   ]]>
+   </update>
+   
+</mapper>

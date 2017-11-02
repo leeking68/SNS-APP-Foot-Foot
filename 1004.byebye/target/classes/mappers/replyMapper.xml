@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="work.com.mapper.ReplyMapper">
+	<resultMap id="replyResult" type="work.com.byebye.dto.Reply">
+		<result property="reNum" column="re_num" />
+		<result property="reCon" column="re_con" />
+		<result property="docNum" column="doc_Num" />
+		<result property="userid" column="user_id" />
+		<result property="nickname" column="nickname"/>
+		<result property="reDate" column="re_dates" />
+	</resultMap>
+
+	<!-- 댓글 게시 insert -->
+	<insert id="replyInsert" parameterType="Reply">
+		insert into reply (re_num,re_con,doc_num,user_id,nickname) 
+		values
+		(seq_re_num.nextval,#{reCon},#{docNum},#{userid},#{nickname})
+	</insert>
+	
+	<!-- 댓글 조회 -->
+	<select id="replySearch" resultMap="replyResult" parameterType="String">
+		select re_num,re_con,doc_num,user_id,nickname,re_date,to_char(re_date,'YYYY-MM-DD HH24')||'시' re_dates from Reply where doc_num= #{docNum} order by re_date
+	</select>
+	
+	<!-- 댓글수정 -->
+	<select id="replyUpdate" parameterType="Reply">
+		update reply set re_con=#{reCon} where re_num=#{reNum}
+	</select>	
+	
+	<!--  
+	<delete id="replyDelete" parameterType="String">
+		delete from reply where re_num = #{reNum}
+	
+	</delete>
+	  -->
+	  
+	<!-- 댓긄  삭제-->
+	<delete id="replyDelete" parameterType="hashmap">
+		delete from reply where re_num =#{reNum} and user_id =#{userid}
+	</delete>
+</mapper>

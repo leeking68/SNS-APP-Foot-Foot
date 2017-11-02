@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="work.com.mapper.UserMapper">
+   <resultMap id="userMap" type="work.com.byebye.dto.UserDto">
+      <result property="userid" column="userid" />
+      <result property="nickname" column="nickname" />
+      <result property="userimg" column="userimg" />
+      <result property="grade" column="grade" />
+   </resultMap>
+
+   <!-- 로그인 시 아이디 중복 체크 -->
+   <select id="loginCheck" parameterType="String" resultType="String">
+      select grade from users where userid = #{userid}
+   </select>
+
+   <!-- 카카오 회원 등록 -->
+   <insert id="insertKakao" parameterType="map">
+      insert into users
+      values(#{userid}, #{nickname}, #{userimg}, #{grade})
+   </insert>
+
+   <!-- 네이버 회원 등록 -->
+   <insert id="insertNaver" parameterType="map">
+      insert into users values(#{userid}, #{nickname}, #{userimg}, #{grade})
+   </insert>
+
+   <!-- 페이스북 회원 등록 -->
+   <insert id="insertFacebook" parameterType="map">
+      insert into users values(#{userid}, #{nickname}, #{userimg}, #{grade})
+   </insert>
+   
+   <!-- 회원 정보 가져오기 -->
+   <select id="getUser" parameterType="string" resultType="UserDto">
+   	select * from users where userid =#{userid}
+   </select>
+   
+   <!-- 회원탈퇴 -->
+   <delete id="deleteUser" parameterType="String">
+      delete users where userid =#{userid}
+   </delete>
+   
+   <!-- insert or update -->
+	<update id="newLogin" parameterType="hashmap">
+	<![CDATA[
+		merge into users using dual alias on (userid = #{userid})
+		when matched then update set
+		nickname=#{nickname},
+		userimg=#{userimg}
+		when not matched then insert (userid, nickname, userimg, grade) values
+		(#{userid}, #{nickname}, #{userimg}, #{grade})
+		]]>
+	</update>
+
+</mapper>
