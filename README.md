@@ -120,7 +120,7 @@
 
 
 
-![lucy xss](./img/lucy xss.PNG)
+![lucy xss](./img/lucyxss.PNG)
 
 
 
